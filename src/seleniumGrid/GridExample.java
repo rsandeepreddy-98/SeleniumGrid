@@ -18,6 +18,7 @@ public class GridExample {
 		driver.get("https://www.google.com");
 		String titleOfPage = driver.getTitle();
 		System.out.println("Title : " +titleOfPage);
+		driver.getCurrentUrl();
 		driver.close();
 	}
 }
