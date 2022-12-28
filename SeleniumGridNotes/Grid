@@ -1,0 +1,30 @@
+Steps to work with selenium GRID:
+-------------------------------------
+Selenium Grid in same machine:
+==============================
+1.In order to work with selenium Grid first we need to download the selenium server jar from
+	official website---seleniumhq.org
+2. After that download different drivers ex: chromedriver, geckodriver, IEdrivers....
+3. Keep all the drivers and jar in one specific folder and open it with cmd.
+4. First we need to start the HUB
+5. Open the cmd where the Jar and drivers located and give the below command.
+	
+	java -jar <selenium-server>.jar hub
+	
+6. Once you give this command it will trigger some logs and it will start the hub in specific
+	port number and will generate publish events and subscriber events(XPUB),(XSUB)
+7. After your hub starts, you need to attach nodes to it...for this give below command
+	
+	java -jar <selenium-server>.jar node --detect-drivers true.
+	
+8.It will trigger logs and attach nodes to the hub.
+
+===================================================================================
+SELENIUM GRID IN ANOTHER MACHINE:
+===================================
+9. Now the hub will be in one machine, but to connect another node machine to the previous hub, then
+	
+	java -jar <seleniumserver>.jar node --detect-drivers true --publish-events tcp:<Ipaddress of XPUB> 
+	--subscribe-events tcp:<Ipaddress of XSUB>
+10. In this way we can connect outsied remote machine to local machine hub by pointning to 
+	hub URLs.
